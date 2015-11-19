@@ -1,6 +1,5 @@
 setwd("~/Senior Capstone Project/res/MNIST data/")
 
-library(ggplot2)
 
 #input the CSV files
 
@@ -17,6 +16,13 @@ ShortDataSet <- train[ 1 :300,]
 
 par(bg="white")
 
-m = matrix(unlist(ShortDataSet[50,-1]), nrow = 28, byrow = T)
-image(m, col = c("Grey100", "Grey0"))
 
+for (i in 1:10) {
+  jpeg(paste("m", as.character(i), ".jpg",  sep = ""))  
+  m = matrix(unlist(ShortDataSet[i,-1]), nrow = 28, byrow = T)
+  image(m, col = c("Grey100", "Grey0"))
+  
+    
+}
+
+dev.off()

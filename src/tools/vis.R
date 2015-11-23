@@ -8,7 +8,7 @@ options(echo = FALSE)
 args <- commandArgs(TRUE)
 
 ShortDataSet <- read.csv("train.csv", header = TRUE)
-count <- 20
+count <- 300
 
 
 if (length(args) < 2) {
@@ -38,7 +38,7 @@ for (i in 1:as.numeric(count)) {
   m = rot(matrix(unlist(ShortDataSet[i,-1]), nrow = 28, byrow = T))
   image(m, col = c("Grey100", "Grey0"))
   
+  dev.off()
     
 }
 
-dev.off()

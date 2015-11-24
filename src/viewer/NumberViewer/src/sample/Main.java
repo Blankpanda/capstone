@@ -1,10 +1,15 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.application.Application;
@@ -19,13 +24,22 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    @FXML
+    private Button submitBtn;
+    private TextArea InputBox;
+    private ImageView ImageBox;
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Image viewer");
-        primaryStage.setScene(new Scene(root, 300, 275));
 
-        image.setImage(new Image ("resources/test.png"));
+        // PHYSICAL ANGER
+        Parent root = FXMLLoader.load(getClass().getResource("testform.fxml"));
+
+        primaryStage.setTitle("Image viewer");
+        primaryStage.setResizable(false);
+        Scene mainScene = new Scene(root);
+        primaryStage.setScene(mainScene);
+
+
         primaryStage.show();
     }
 

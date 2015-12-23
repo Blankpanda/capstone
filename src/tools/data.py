@@ -1,3 +1,14 @@
+"""
+    this will read the Short.csv file
+    and convert the seconds column into
+    a dictionary that holds an index and
+    a number based on the value at that
+    index.  This is to be used when pairing
+    values in the viewer.
+    for instance:
+        m7.jpg -> key: 7 value: 3
+"""
+
 import pandas as pd
 import json
 

@@ -7,7 +7,7 @@ setwd("~/Senior Capstone Project/res/MNIST data/")
 options(echo = FALSE)
 args <- commandArgs(TRUE)
 
-ShortDataSet <- read.csv("train.csv", header = TRUE)
+ShortDataSet <- read.csv("Short.csv", header = TRUE)
 count <- 300
 
 
@@ -33,7 +33,7 @@ rot <- function(x) t(apply(x,2,rev))
 
 par(bg="white")
 
-for (i in 1:as.numeric(count)) {
+for (i in 0:as.numeric(count)) {
   jpeg(paste("m", as.character(i), ".jpg",  sep = ""))  
   m = rot(matrix(unlist(ShortDataSet[i,-1]), nrow = 28, byrow = T))
   image(m, col = c("Grey100", "Grey0"))

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace ImageViewer
 {
     /// <summary>
@@ -20,14 +21,22 @@ namespace ImageViewer
     /// </summary>
     public partial class MainWindow : Window
     {
+        Queue<Image> ImageQueue = new Queue<Image>();
+        private string CorrectAnswer = "";
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private double DetermineSucessPercentage(double CorrectCount)
+        {
+            return NotImplementedException;
         }
     }
 }

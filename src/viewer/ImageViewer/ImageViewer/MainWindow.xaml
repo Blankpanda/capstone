@@ -27,7 +27,7 @@
         <Label x:Name="label2" Content="Bailey" Grid.Column="1" HorizontalAlignment="Left" Margin="106,18,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.553,-0.077" Grid.ColumnSpan="2"/>
         <Label x:Name="label3" Content="Caleb" Grid.Column="2" HorizontalAlignment="Right" Margin="0,18,104,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.553,-0.077" Grid.ColumnSpan="2"/>
 
-        <Button x:Name="SubmitButton" Content="Submit" Grid.Column="1" HorizontalAlignment="Center" Margin="10.5,27,10,0" Grid.Row="3" VerticalAlignment="Top" Width="227" Grid.ColumnSpan="2" Height="47"/>
+        <Button x:Name="SubmitButton" Content="Submit" Grid.Column="1" HorizontalAlignment="Center" Margin="10.5,27,10,0" Grid.Row="3" VerticalAlignment="Top" Width="227" Grid.ColumnSpan="2" Height="47" Click="SubmitButton_Click"/>
         <TextBox x:Name="ElijahTextBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="60" Margin="90,44,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Grid.RowSpan="2" FontSize="32" FontFamily="Open Sans" TextAlignment="Center"/>
         <TextBox x:Name="BaileyTextBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="60" Margin="96,44,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Grid.RowSpan="2" Grid.Column="1" FontSize="32" FontFamily="Open Sans" TextAlignment="Center"/>
         <TextBox x:Name="CalebTextBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="60" Margin="87,44,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Grid.RowSpan="2" Grid.Column="2" FontSize="32" FontFamily="Open Sans" TextAlignment="Center"/>

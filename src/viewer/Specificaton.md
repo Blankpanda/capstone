@@ -2,16 +2,15 @@
 
 ### Purpose: A system to test human parsing of written numbers
 
-Java desktop application because bailey doesn't know any other language
+This code is really bad but we needed to develop it quickly due to time limitations, this application is an internal tool for us to collect the human data versus the machine data.
+
+Desktop application to test number accuracy written in C# WPF
 
 Files can be found in
  ```
-  NumberViewer/*
+  ImageViewer/*
  ```
-Development tools can be found in
-```
-tools/*
-```
+
 ---
 
 ## Features

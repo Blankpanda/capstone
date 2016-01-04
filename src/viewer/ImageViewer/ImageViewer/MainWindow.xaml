@@ -1,0 +1,35 @@
+﻿<Window x:Class="ImageViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageViewer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="500" ResizeMode="NoResize">
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- Here be dragons thou art forwarned -->
+        <Image x:Name="NumberImage" HorizontalAlignment="Stretch" Height="Auto" Grid.RowSpan="2" VerticalAlignment="Stretch" Width="Auto" Grid.Column="1" Margin="0,20,0,15" Grid.ColumnSpan="2" Source="1451668169310.png"/>
+        <Label x:Name="label" Content="What number is this?" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Label x:Name="label1" Content="Elijah" Margin="100,18,103,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.553,-0.077" Grid.ColumnSpan="2"/>
+        <Label x:Name="label2" Content="Bailey" Grid.Column="1" HorizontalAlignment="Left" Margin="106,18,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.553,-0.077" Grid.ColumnSpan="2"/>
+        <Label x:Name="label3" Content="Caleb" Grid.Column="2" HorizontalAlignment="Right" Margin="0,18,104,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.553,-0.077" Grid.ColumnSpan="2"/>
+
+        <Button x:Name="SubmitButton" Content="Submit" Grid.Column="1" HorizontalAlignment="Center" Margin="10.5,27,10,0" Grid.Row="3" VerticalAlignment="Top" Width="227" Grid.ColumnSpan="2" Height="47"/>
+        <TextBox x:Name="ElijahTextBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="60" Margin="90,44,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Grid.RowSpan="2" FontSize="32" FontFamily="Open Sans" TextAlignment="Center"/>
+        <TextBox x:Name="BaileyTextBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="60" Margin="96,44,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Grid.RowSpan="2" Grid.Column="1" FontSize="32" FontFamily="Open Sans" TextAlignment="Center"/>
+        <TextBox x:Name="CalebTextBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="60" Margin="87,44,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Grid.RowSpan="2" Grid.Column="2" FontSize="32" FontFamily="Open Sans" TextAlignment="Center"/>
+    </Grid>
+</Window>

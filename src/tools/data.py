@@ -22,11 +22,13 @@ def main():
     numbers_dict = {}
 
     for i in range(0, len(numbers)):
-        numbers_dict[str(i)] = str(numbers[i])
+        numbers_dict[int(i)] = str(numbers[i])
 
     # convert the dictionary to a json file
     numbers_json = json.dumps(numbers_dict)
 
+    # sort the dictionary
+    sorted(numbers_dict.items(), key=lambda x: x[1])
     # write the json to a file
     out = open('numbers.json', 'w')
     out.write(numbers_json)

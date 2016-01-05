@@ -23,7 +23,7 @@ namespace ImageViewer
     public partial class MainWindow : Window
     {
         // Parrallel queues 
-        Queue<Image> ImageQueue = new Queue<Image>();
+        Queue<BitmapImage> ImageQueue = new Queue<BitmapImage>();
         Queue<String> CorrectAnsweQueue = new Queue<string>();
         Extractor Unzipper;
 
@@ -37,6 +37,8 @@ namespace ImageViewer
         {
             InitializeComponent();
 
+            SubmitButton.IsDefault = true;
+
             // Unzip the images
             Unzipper = new Extractor();
             Unzipper.Extract("pictures.zip");
@@ -47,15 +49,18 @@ namespace ImageViewer
             dynamic AnswersJsonObject = JsonConvert.DeserializeObject(RawJson);
 
             // Get file information
-            string FilePath = Unzipper.TempFolderName + @"\pictures\";
+            string FilePath = Directory.GetCurrentDirectory() + "\\" + Unzipper.TempFolderName + "\\pictures\\";
             DirectoryInfo ImageFileInfo = new DirectoryInfo(FilePath);
             FileInfo[] ImageFiles = ImageFileInfo.GetFiles("*.jpg");
 
             foreach (var file in ImageFiles)
             {
                 // Build image and place in queue
-                Image NumberImage = new Image();
-                NumberImage.Source = new BitmapImage(new Uri(FilePath, UriKind.RelativeOrAbsolute));
+                BitmapImage NumberImage = new BitmapImage();
+                NumberImage.BeginInit();
+                NumberImage.UriSource = new Uri(FilePath + file.Name, UriKind.RelativeOrAbsolute);
+                NumberImage.EndInit();
+
                 ImageQueue.Enqueue(NumberImage);
 
                 // Get the key from the filename
@@ -66,10 +71,9 @@ namespace ImageViewer
                 CorrectAnsweQueue.Enqueue(Answer);
             }
 
-            // Initial set up 
             CorrectAnswer = CorrectAnsweQueue.Dequeue();
-            Image img = ImageQueue.Dequeue();
-            NumberImage.Source = img.Source;
+            BitmapImage img = ImageQueue.Dequeue();
+            NumberImage.Source = img;
 
         }
 
@@ -96,47 +100,34 @@ namespace ImageViewer
             string calebInput = CalebTextBox.Text;
 
 
+            if (SubmitCount >= 10)
+            {
+                MessageBox.Show("Elijah Score: " + elijahCorrect);
+                MessageBox.Show("Bailey Score: " + baileyCorrect);
+                MessageBox.Show("Caleb Score: " + calebCorrect);
+            }
+
 
             // If it's the first run then we want to use the initally set values 
-            if (SubmitCount == 0)
-            {
-                ++SubmitCount;
-                if (elijahInput.Trim() == CorrectAnswer)
-                {
-                    ++elijahCorrect;
-                }
-                else if (baileyInput.Trim() == CorrectAnswer)
-                {
-                    ++baileyCorrect;
-                }
-                else if (calebInput.Trim() == CorrectAnswer)
-                {
-                    ++calebCorrect;
-                }
-            }
-            else
-            {
-                // Get the image and the answer for the image
-                CorrectAnswer = CorrectAnsweQueue.Dequeue();
-                Image img = ImageQueue.Dequeue();
-                NumberImage.Source = img.Source;
+             ++SubmitCount;
+             if (elijahInput.Trim() == CorrectAnswer)
+                ++elijahCorrect;
 
-                if (elijahInput.Trim() == CorrectAnswer)
-                {
-                    ++elijahCorrect;
-                }
-                else if (baileyInput.Trim() == CorrectAnswer)
-                {
-                    ++baileyCorrect;
-                }
-                else if (calebInput.Trim() == CorrectAnswer)
-                {
-                    ++calebCorrect;
-                }
+             if (baileyInput.Trim() == CorrectAnswer)
+                ++baileyCorrect;
 
-                ++SubmitCount;
-            }
+             if (calebInput.Trim() == CorrectAnswer)
+                ++calebCorrect;
 
+             CorrectAnswer = CorrectAnsweQueue.Dequeue();
+             BitmapImage img = ImageQueue.Dequeue();
+             NumberImage.Source = img;
+
+            ElijahTextBox.Text = "";
+            BaileyTextBox.Text = "" ;
+            CalebTextBox.Text = "";
+
+            ElijahTextBox.Focus();
             
         }
 

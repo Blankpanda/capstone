@@ -31,11 +31,28 @@ if ("--help" %in% args) {
 rm(args)
 
 #input the CSV files
-train <- read.csv(file = infile, header = TRUE)
+train <- read.csv(file = "train.csv", header = TRUE)
+
+
 
 # get 300 values from the train data set.
-ShortDataSet <- train[ 1 :as.numeric(trunc),]
 
-write.csv(ShortDataSet, file =  outfile) 
+ShortDataSet <- train[ 301 :as.numeric(600),]
 
-print("Done.")
+write.csv(ShortDataSet, file =  "train2.csv") 
+
+test <- read.csv(file = "test.csv", header = TRUE)
+mytst <- read.csv(file = "Short.csv", header = TRUE)
+
+test
+
+mytst <- mytst[,mytst$X:=NULL]
+mytst <- mytst[,mytst$label:=NULL]
+
+
+
+
+
+
+
+

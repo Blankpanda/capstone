@@ -22,17 +22,17 @@ namespace ImageViewer
     /// </summary>
     public partial class MainWindow : Window
     {
-        // Parrallel queues 
+        // Parrallel queues
         Queue<BitmapImage> ImageQueue = new Queue<BitmapImage>();
         Queue<String> CorrectAnsweQueue = new Queue<string>();
         Extractor Unzipper;
 
         string CorrectAnswer;
-        // I might have to use this if the imagebox doesn't load the dequeue immediately 
+        // I might have to use this if the imagebox doesn't load the dequeue immediately
         Image NumberImageObject;
 
         int SubmitCount = 0;
-        
+
         public MainWindow()
         {
             InitializeComponent();
@@ -66,7 +66,7 @@ namespace ImageViewer
                 // Get the key from the filename
                 string Key = StripFilePathFromString(file.Name);
 
-                // Search the json for the answer and enqueue it 
+                // Search the json for the answer and enqueue it
                 string Answer = AnswersJsonObject[Key].ToString();
                 CorrectAnsweQueue.Enqueue(Answer);
             }
@@ -78,7 +78,7 @@ namespace ImageViewer
         }
 
         /// <summary>
-        /// Strips the filepath from the string 
+        /// Strips the filepath from the string
         /// </summary>
         /// <param name="Filename"></param>
         /// <returns></returns>
@@ -88,6 +88,8 @@ namespace ImageViewer
             return ret.Trim();
         }
 
+        // Here be dragons. Thou art forewarned.
+ 
         public static int elijahCorrect = 0;
         public static int baileyCorrect = 0;
         public static int calebCorrect = 0;
@@ -108,7 +110,7 @@ namespace ImageViewer
             }
 
 
-            // If it's the first run then we want to use the initally set values 
+            // If it's the first run then we want to use the initally set values
              ++SubmitCount;
              if (elijahInput.Trim() == CorrectAnswer)
                 ++elijahCorrect;
@@ -128,7 +130,7 @@ namespace ImageViewer
             CalebTextBox.Text = "";
 
             ElijahTextBox.Focus();
-            
+
         }
 
         private double DetermineSucessPercentage(double CorrectCount)
@@ -137,7 +139,7 @@ namespace ImageViewer
         }
 
         /// <summary>
-        /// Messagebox.shows() the queues for testing purposes 
+        /// Messagebox.shows() the queues for testing purposes
         /// </summary>
         private void OutputQueuesForTesting()
         {

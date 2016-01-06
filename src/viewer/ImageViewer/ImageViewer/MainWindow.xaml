@@ -19,8 +19,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
-        <!-- Here be dragons thou art forwarned -->
+
         <Image x:Name="NumberImage" HorizontalAlignment="Stretch" Height="Auto" Grid.RowSpan="2" VerticalAlignment="Stretch" Width="Auto" Grid.Column="1" Margin="0,20,0,15" Grid.ColumnSpan="2" />
         <Label x:Name="label" Content="What number is this?" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <Label x:Name="label1" Content="Elijah" Margin="100,18,103,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.553,-0.077" Grid.ColumnSpan="2"/>

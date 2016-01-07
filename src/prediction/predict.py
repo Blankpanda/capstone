@@ -1,3 +1,4 @@
+import time
 import numpy as np
 from neuralnet import NeuralNetMLP
 
@@ -20,11 +21,17 @@ nn = NeuralNetMLP(n_output=10,
         minibatches=50,
         random_state= 1)
 
+start_time = time.time()
+
 nn.fit(X_train,y_train, print_progress=True)
 
 y_train_pred = nn.predict(X_train)
 
 y_test_pred = nn.predict(X_test)
+
+end_time = time.time()
+
+total_time = start_time - end_time
 
 f = open('out.txt', 'w')
 

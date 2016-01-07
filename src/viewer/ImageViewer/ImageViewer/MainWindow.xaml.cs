@@ -102,7 +102,7 @@ namespace ImageViewer
             string calebInput = CalebTextBox.Text;
 
 
-            if (SubmitCount >= 10)
+            if (SubmitCount >= 300)
             {
                 MessageBox.Show("Elijah Score: " + elijahCorrect);
                 MessageBox.Show("Bailey Score: " + baileyCorrect);

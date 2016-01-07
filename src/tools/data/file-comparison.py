@@ -25,7 +25,7 @@ percent_correct = float(math.floor((100.0) * (correct / base)))
 
 # Calculate percent error
 # percent error =  (|(theoretical - experimental)| / 100%) * 100
-percent_error = (abs(base - correct) / 100) * 100
+percent_error = math.ceil((abs(base - correct) / base) * 100)
 
 # print out information
 print("File difference statistics")

@@ -41,13 +41,15 @@ ShortDataSet <- train[ 301 :as.numeric(600),]
 
 write.csv(ShortDataSet, file =  "train2.csv") 
 
-test <- read.csv(file = "test.csv", header = TRUE)
-mytst <- read.csv(file = "Short.csv", header = TRUE)
 
-test
+mytst <- read.csv(file = "test.csv", header = TRUE)
+train <- read.csv(file = "train.csv", header =TRUE)
 
-mytst <- mytst[,mytst$X:=NULL]
-mytst <- mytst[,mytst$label:=NULL]
+
+mytst$X <- NULL
+mytst$label <- NULL
+
+write.csv(mytst, file =  "test.csv") 
 
 
 
